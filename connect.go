@@ -505,9 +505,9 @@ func (this *ConnectMessage) decodeMessage(src []byte) (int, error) {
 		return total, fmt.Errorf("connect/decodeMessage: Invalid QoS level (%d) for %s message", this.WillQos(), this.Name())
 	}
 
-	if !this.WillFlag() && (this.WillRetain() || this.WillQos() != QosAtMostOnce) {
-		return total, fmt.Errorf("connect/decodeMessage: Protocol violation: If the Will Flag (%t) is set to 0 the Will QoS (%d) and Will Retain (%t) fields MUST be set to zero", this.WillFlag(), this.WillQos(), this.WillRetain())
-	}
+	//	if !this.WillFlag() && (this.WillRetain() || this.WillQos() != QosAtMostOnce) {
+	//		return total, fmt.Errorf("connect/decodeMessage: Protocol violation: If the Will Flag (%t) is set to 0 the Will QoS (%d) and Will Retain (%t) fields MUST be set to zero", this.WillFlag(), this.WillQos(), this.WillRetain())
+	//	}
 
 	if this.UsernameFlag() && !this.PasswordFlag() {
 		return total, fmt.Errorf("connect/decodeMessage: Username flag is set but Password flag is not set")
